@@ -46,7 +46,7 @@ public class CameraRig : MonoBehaviour
         
         disToTarget = Mathf.Clamp(disToTarget, 5, 100);
 
-        float z = AniMath.Ease(cam.transform.localPosition.z, -disToTarget, .5f, Time.unscaledDeltaTime);
+        float z = AniMath.Ease(cam.transform.localPosition.z, -disToTarget, .01f, Time.unscaledDeltaTime);
         
         cam.transform.localPosition = new Vector3(0, 0, z);
 
@@ -56,10 +56,14 @@ public class CameraRig : MonoBehaviour
 
         disToNextPlanet = Mathf.Sqrt(Mathf.Pow((nextPlanet.position.x - transform.position.x), 2) + Mathf.Pow((nextPlanet.position.z - transform.position.z), 2));
 
-        transform.position = AniMath.Ease(transform.position, nextPlanet.position, .5f, Time.unscaledDeltaTime);
+        transform.position = AniMath.Ease(transform.position, nextPlanet.position, .01f, Time.unscaledDeltaTime);
 
-        if (disToNextPlanet <= 100){
+        if (disToNextPlanet <= 50){
             thingToTarget = nextPlanet;
+            transform.position = AniMath.Ease(transform.position, nextPlanet.position, .000001f, Time.unscaledDeltaTime);
+        }
+
+        if(disToNextPlanet <= 20){
             transform.position = thingToTarget.position;
         }
         

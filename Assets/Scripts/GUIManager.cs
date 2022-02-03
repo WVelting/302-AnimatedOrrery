@@ -14,8 +14,12 @@ public class GUIManager : MonoBehaviour
     public Transform antonius;
     public Transform caesar;
     public Transform caepio;
+    public OrbitScript[] orbits;
+    public PlanetaryRotation[] rotations;
+    private bool isRewind = false;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         cam.thingToTarget = systemView;
         cam.nextPlanet = systemView;
     }
@@ -60,15 +64,38 @@ public class GUIManager : MonoBehaviour
     }
 
     public void OnClickPlay(){
+        if(!isRewind) timer.timeScale = 1;
+        if(isRewind){
+            foreach(OrbitScript p in orbits){
+            p.timeMultiplier *= -1;
+        }
+
+        foreach(PlanetaryRotation r in rotations){
+            r.rot*=-1;
+        }
+        isRewind = false;
         timer.timeScale = 1;
+        }
     }
 
     public void OnClickFF(){
+        if(isRewind) OnClickPlay();
+        
         timer.timeScale = 3;
     }
 
     public void OnClickRewind(){
-        timer.timeScale = -1;
+        
+        if(isRewind) return;
+        foreach(OrbitScript p in orbits){
+            p.timeMultiplier *= -1;
+        }
+
+        foreach(PlanetaryRotation r in rotations){
+            r.rot*=-1;
+        }
+        isRewind = true;
+        
     }
 
 }
