@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Range (-1, 3)]
+    public int timeScale = 1;
     void Start()
     {
         
@@ -13,6 +14,6 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Time.timeScale = timeScale;
     }
 }
