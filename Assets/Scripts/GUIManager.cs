@@ -67,7 +67,7 @@ public class GUIManager : MonoBehaviour
         if(!isRewind) timer.timeScale = 1;
         if(isRewind){
             foreach(OrbitScript p in orbits){
-            p.timeMultiplier *= -1;
+            p.timeFlip = 1;
         }
 
         foreach(PlanetaryRotation r in rotations){
@@ -88,7 +88,7 @@ public class GUIManager : MonoBehaviour
         
         if(isRewind) return;
         foreach(OrbitScript p in orbits){
-            p.timeMultiplier *= -1;
+            p.timeFlip = -1;
         }
 
         foreach(PlanetaryRotation r in rotations){
