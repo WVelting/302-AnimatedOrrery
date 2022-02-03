@@ -12,7 +12,7 @@ public class CameraRig : MonoBehaviour
 
     private float pitch = 0;
     private float yaw = 0;
-    private float disToTarget = 50;
+    public float disToTarget = 50;
     private float disToNextPlanet;
     public float mouseSensitivityX = 1;
     public float mouseSensitivityY = 1;
@@ -29,6 +29,7 @@ public class CameraRig : MonoBehaviour
 
     void LateUpdate()
     {
+        
         // Update Rotation-----------------
         float lookRight = Input.GetAxisRaw("Mouse X"); //yaw (Y)
         float lookUp = Input.GetAxisRaw("Mouse Y"); //pitch (X)
@@ -44,7 +45,7 @@ public class CameraRig : MonoBehaviour
         Vector2 scrollAmt = Input.mouseScrollDelta;
         disToTarget -= scrollAmt.y * scrollSensitivity;
         
-        disToTarget = Mathf.Clamp(disToTarget, 5, 100);
+        disToTarget = Mathf.Clamp(disToTarget, 25, 100);
 
         float z = AniMath.Ease(cam.transform.localPosition.z, -disToTarget, .01f, Time.unscaledDeltaTime);
         

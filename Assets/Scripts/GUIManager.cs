@@ -25,37 +25,58 @@ public class GUIManager : MonoBehaviour
     }
 
     public void OnClickSystemView(){
-        if(cam.nextPlanet != systemView) cam.nextPlanet = systemView;
+        if(cam.nextPlanet != systemView) {
+            cam.nextPlanet = systemView;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 0, 20);
+        }
         else return;
     }
 
     public void OnClickCoriolanus(){
-        if(cam.nextPlanet != coriolanus) cam.nextPlanet = coriolanus;
+        if(cam.nextPlanet != coriolanus) {
+            cam.nextPlanet = coriolanus;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 30, 50);
+        }
         else return;
     }
 
     public void OnClickOctavius(){
-        if(cam.nextPlanet != octavius) cam.nextPlanet = octavius;
+        if(cam.nextPlanet != octavius) {
+            cam.nextPlanet = octavius;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 10, 20);
+        }
         else return;
     }   
 
     public void OnClickCassius(){
-        if(cam.nextPlanet != cassius) cam.nextPlanet = cassius;
+        if(cam.nextPlanet != cassius) {
+            cam.nextPlanet = cassius;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 10, 20);
+        }
         else return;
     }
 
     public void OnClickAntonius(){
-        if(cam.nextPlanet != antonius) cam.nextPlanet = antonius;
+        if(cam.nextPlanet != antonius) {
+            cam.nextPlanet = antonius;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 10, 20);
+        }
         else return;
     }
 
     public void OnClickCaesar(){
-        if(cam.nextPlanet != caesar) cam.nextPlanet = caesar;
+        if(cam.nextPlanet != caesar) {
+            cam.nextPlanet = caesar;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 15, 30);
+        }
         else return;
     }
 
     public void OnClickCaepio(){
-        if(cam.nextPlanet != caepio) cam.nextPlanet = caepio;
+        if(cam.nextPlanet != caepio) {
+            cam.nextPlanet = caepio;
+            cam.disToTarget = Mathf.Clamp(cam.disToTarget, 5, 20);
+        }
         else return;
     }
 
