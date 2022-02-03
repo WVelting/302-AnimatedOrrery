@@ -64,9 +64,9 @@ public class CameraRig : MonoBehaviour
             transform.position = AniMath.Ease(transform.position, nextPlanet.position, .000001f, Time.unscaledDeltaTime);
         }
 
-        if(disToNextPlanet <= 20){
-            transform.position = thingToTarget.position;
-        }
+        //if(disToNextPlanet <= 20){
+            //transform.position = thingToTarget.position;
+        //}
         
     }
 }
